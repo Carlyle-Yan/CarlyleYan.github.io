@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <button id="href">href</button>
+    <button id="assign">assign</button>
+    <script type="text/javascript">
+      var obj = document.getElementById('href');
+      obj.onclick=function(){
+		window.location.href="https://www.baidu.com";
+	  }
+
+	  var obj = document.getElementById('assign');
+      obj.onclick=function(){
+		// window.location.assign("https://www.baidu.com");
+		window.location="https://www.baidu.com";
+	  }
+    </script>
+</body>
+</html>
