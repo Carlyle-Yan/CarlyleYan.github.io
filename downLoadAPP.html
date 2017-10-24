@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+	<title>立即下载</title>
+	<script src="angular.min.js"></script>
+	<script type="text/javascript" src="downAPP.js" ></script>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		.title{
+			width: 231px;
+			height: 82px;
+			display: block;
+			margin-top:30px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.main{
+			margin-top: 30px;
+			text-align: center;
+			position: relative;
+		}
+		.start-main1{
+			width: 123px;
+			height: 217px;
+			box-shadow: 0 0 20px #bbb;
+		}
+		.start-main2{
+			width: 123px;
+			height: 217px;
+			margin-left: 57px;
+			box-shadow: 0 0 20px #bbb;
+		}
+		.start-main3{
+			width: 141px;
+			height: 251px;
+			position: absolute;		
+			top: 18px;
+			left: 50%;
+			margin-left: -70.5px;
+			box-shadow: 0 0 30px #908e8e;
+		}
+		.dlline{
+			text-align: center;
+			margin-top: 90px;
+			margin-bottom:30px;
+		}
+		#download{
+			width: 236px;
+			height: 39px;
+			background-color: #1BC972;
+			color: #fff;
+			border:none;
+			border-radius: 5px;
+			font-family: NotoSansHans-Regular;
+			font-size: 17px;
+			letter-spacing: 1px;
+			outline:none;
+		}
+		#download:active{
+			background-color: #19a05d;
+		}
+	</style>
+</head>
+<body>
+	<img class="title" src="assets/img/dlLogo.jpg" alt="房帮帮">
+	<div class="main">
+		<img class="start-main1" src="assets/img/start-main1.jpg" alt="展示图片">
+		<img class="start-main2" src="assets/img/start-main2.jpg" alt="展示图片">
+		<img class="start-main3" src="assets/img/start-main3.jpg" alt="展示图片">
+	</div>	
+	<div class="dlline" ng-app="downLoad" ng-controller="downLoadCtr">
+		<button id="download" ng-click="downLoad()">立即下载</button>
+	</div>
+	
+	<script>
+		var app = angular.module('downLoad', []);
+		app.controller('downLoadCtr', function($scope) {								
+			if(downApp.isWeixin&&downApp.isAndroid){
+				downApp.loadHtml();
+				downApp.loadStyleText(downApp.cssText);
+			}
+			if(downApp.isAndroid){	
+				window.location="http://files.fbb360.com/fbb.apk?v=" + Date.parse(new Date());
+			}else if(downApp.isiOS){
+				window.location="https://itunes.apple.com/cn/app/id1192637343?mt=8";
+			}
+		    $scope.downLoad=function(){		    	
+		    	if(downApp.isAndroid){	
+					window.location="http://files.fbb360.com/fbb.apk?v=" + Date.parse(new Date());
+				}else if(downApp.isiOS){
+					window.location="https://itunes.apple.com/cn/app/id1192637343?mt=8";
+				}else{
+					window.location="http://files.fbb360.com/fbb.apk?v=" + Date.parse(new Date());
+				}
+		    }; 
+		});
+	</script>
+</body>
+</html>
