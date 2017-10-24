@@ -85,15 +85,18 @@
 				downApp.loadStyleText(downApp.cssText);
 			}
 			if(downApp.isAndroid){	
-				window.location="http://files.fbb360.com/fbb.apk?v=" + Date.parse(new Date());
+				//window.location="http://files.fbb360.com/fbb.apk?v=" + Date.parse(new Date());
+				
 			}else if(downApp.isiOS){
-				window.location="https://itunes.apple.com/cn/app/id1192637343?mt=8";
+				//window.location="https://itunes.apple.com/cn/app/id1192637343?mt=8";
+				window.open("https://itunes.apple.com/cn/app/id1192637343?mt=8");
 			}
 		    $scope.downLoad=function(){		    	
 		    	if(downApp.isAndroid){	
 					window.location="http://files.fbb360.com/fbb.apk?v=" + Date.parse(new Date());
 				}else if(downApp.isiOS){
-					window.location="https://itunes.apple.com/cn/app/id1192637343?mt=8";
+					//window.location="https://itunes.apple.com/cn/app/id1192637343?mt=8";
+					window.open("https://itunes.apple.com/cn/app/id1192637343?mt=8");
 				}else{
 					window.location="http://files.fbb360.com/fbb.apk?v=" + Date.parse(new Date());
 				}
